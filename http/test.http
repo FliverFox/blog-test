@@ -23,7 +23,7 @@ Accept: application/json
             `预期状态码200，实际得到: ${response.status}`);
 
         // 健壮的响应体断言
-        const expectedBody = "HELLO WORLD!!!";
+        const expectedBody = "HELLO WORLD!!!TEST";
         const actualBody = String(response.body).trim();
         client.assert(
             actualBody.toLowerCase() === expectedBody.toLowerCase(),
