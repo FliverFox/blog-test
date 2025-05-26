@@ -1,11 +1,12 @@
-package org.example.wikitest;
+package org.example.wikitest.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
-
+@ComponentScan("org.example")
 @SpringBootApplication
 public class WikiTestApplication {
 	private static final Logger LOG = LoggerFactory.getLogger(WikiTestApplication.class);
