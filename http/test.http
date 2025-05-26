@@ -1,0 +1,72 @@
+# GET 请求测试
+GET http://localhost:8888/hello
+Accept: application/json
+
+> {%
+    client.test("test-hello", function() {
+        // 响应日志记录
+        client.log("=== /hello 接口测试 ===");
+        client.log("状态码:", response.status);
+        client.log("原始响应体:", response.body);
+
+        // 兼容性处理 headers
+        try {
+            const contentType = response.headers?.get?.('Content-Type')
+                || response.headers?.['content-type'];
+            client.log("Content-Type:", contentType);
+        } catch (e) {
+            client.log("Header解析失败:", e.message);
+        }
+
+        // 状态码断言
+        client.assert(response.status === 200,
+            `预期状态码200，实际得到: ${response.status}`);
+
+        // 健壮的响应体断言
+        const expectedBody = "HELLO WORLD!!!";
+        const actualBody = String(response.body).trim();
+        client.assert(
+            actualBody.toLowerCase() === expectedBody.toLowerCase(),
+            `预期响应体: "${expectedBody}"，实际得到: "${actualBody}"`
+        );
+    });
+%}
+
+
+###
+
+# POST 请求测试
+POST http://localhost:8888/hello/post
+Content-Type: application/x-www-form-urlencoded
+
+name=success HAJIMI HAHAJIAO
+
+> {%
+    client.test("test-hello-post", function() {
+        // 响应日志记录
+        client.log("=== /hello/post 接口测试 ===");
+        client.log("状态码:", response.status);
+        client.log("原始响应体:", response.body);
+
+        // 兼容性处理 headers
+        try {
+            const contentType = response.headers?.get?.('Content-Type')
+                || response.headers?.['content-type'];
+            client.log("Content-Type:", contentType);
+        } catch (e) {
+            client.log("Header解析失败:", e.message);
+        }
+
+        // 状态码断言
+        client.assert(response.status === 200,
+            `POST预期状态码200，实际得到: ${response.status}`);
+
+        // 灵活的响应体断言
+        const successPattern = /success/i;
+        const responseString = String(response.body);
+        client.assert(
+            successPattern.test(responseString),
+            `响应体应包含'success'，实际得到: ${responseString}`
+        );
+    });
+%}
