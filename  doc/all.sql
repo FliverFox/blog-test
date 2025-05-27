@@ -10,3 +10,6 @@ CREATE TABLE `test` (
 ) ENGINE=InnoDB
  DEFAULT CHARSET=utf8mb4
  COMMENT='测试用基础表';
+
+insert into test values (1, '测试', 'password');
+

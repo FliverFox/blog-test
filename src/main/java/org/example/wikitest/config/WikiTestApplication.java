@@ -1,5 +1,6 @@
 package org.example.wikitest.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 @ComponentScan("org.example")
 @SpringBootApplication
+@MapperScan("org.example.wikitest.mapper")
 public class WikiTestApplication {
 	private static final Logger LOG = LoggerFactory.getLogger(WikiTestApplication.class);
 

@@ -70,3 +70,7 @@ name=success HAJIMI HAHAJIAO
         );
     });
 %}
+
+###
+
+GET http://127.0.0.1:8888/test/list
