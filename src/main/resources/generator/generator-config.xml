@@ -42,6 +42,7 @@
                              targetPackage="org.example.wikitest.mapper"
                              type="XMLMAPPER"/>
 
-        <table tableName="test" domainObjectName="Demo"/>
+<!--        <table tableName="test" domainObjectName="Demo"/>-->
+        <table tableName="ebook" domainObjectName="Ebook"/>
     </context>
 </generatorConfiguration>
