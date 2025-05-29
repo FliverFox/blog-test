@@ -31,7 +31,7 @@
 
         <!-- domain类的位置 -->
         <javaModelGenerator targetProject="src\main\java"
-                            targetPackage="org.example.wikitest.domain.Test"/>
+                            targetPackage="org.example.wikitest.domain"/>
 
         <!-- mapper xml的位置 -->
         <sqlMapGenerator targetProject="src\main\resources"
